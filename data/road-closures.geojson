@@ -1,0 +1,21 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated road closures",
+  "features": [
+    {
+      "type":"Feature",
+      "properties":{"id":"closure-second","layerType":"closure","name":"Second Street closure","status":"Closed","description":"Fictional closure caused by water across the road."},
+      "geometry":{"type":"LineString","coordinates":[[-108.7410,35.5210],[-108.7414,35.5308]]}
+    },
+    {
+      "type":"Feature",
+      "properties":{"id":"closure-downtown","layerType":"closure","name":"Downtown crossing closure","status":"Closed","description":"Fictional flooded crossing. Do not draw the supply route through this segment."},
+      "geometry":{"type":"LineString","coordinates":[[-108.7555,35.5238],[-108.7558,35.5310]]}
+    },
+    {
+      "type":"Feature",
+      "properties":{"id":"closure-east","layerType":"closure","name":"East drainage closure","status":"Closed","description":"Fictional closure near the high-risk flood corridor."},
+      "geometry":{"type":"LineString","coordinates":[[-108.7140,35.5233],[-108.7115,35.5310]]}
+    }
+  ]
+}

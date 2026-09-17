@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated flood zones",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "moderate-flood",
+        "layerType": "flood",
+        "name": "Simulated moderate flood zone",
+        "risk": "Moderate",
+        "description": "Fictional classroom flood extent. Avoid using this area for the relief center when a safer site is available."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-108.796, 35.5210], [-108.780, 35.5202], [-108.762, 35.5217], [-108.744, 35.5206],
+          [-108.727, 35.5222], [-108.709, 35.5211], [-108.690, 35.5228], [-108.686, 35.5353],
+          [-108.705, 35.5340], [-108.724, 35.5351], [-108.743, 35.5335], [-108.760, 35.5349],
+          [-108.779, 35.5332], [-108.797, 35.5342], [-108.796, 35.5210]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "high-flood",
+        "layerType": "flood",
+        "name": "Simulated high flood zone",
+        "risk": "High",
+        "description": "Fictional high-risk corridor along the drainage. A relief center or supply route must not enter this zone."
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-108.794, 35.5247], [-108.777, 35.5240], [-108.760, 35.5252], [-108.744, 35.5243],
+          [-108.727, 35.5255], [-108.710, 35.5245], [-108.691, 35.5260], [-108.689, 35.5312],
+          [-108.707, 35.5301], [-108.725, 35.5311], [-108.743, 35.5299], [-108.760, 35.5310],
+          [-108.777, 35.5298], [-108.795, 35.5305], [-108.794, 35.5247]
+        ]]
+      }
+    }
+  ]
+}

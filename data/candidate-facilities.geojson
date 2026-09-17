@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated candidate facilities",
+  "features": [
+    {
+      "type":"Feature","properties":{"id":"facility-a","layerType":"facility","name":"Candidate A — South Campus","capacity":420,"generator":"Yes","description":"Fictional available facility with a large indoor space and backup power."},
+      "geometry":{"type":"Point","coordinates":[-108.7425,35.5038]}
+    },
+    {
+      "type":"Feature","properties":{"id":"facility-b","layerType":"facility","name":"Candidate B — Boardman Center","capacity":360,"generator":"Yes","description":"Fictional available community facility near an open road corridor."},
+      "geometry":{"type":"Point","coordinates":[-108.7240,35.5120]}
+    },
+    {
+      "type":"Feature","properties":{"id":"facility-c","layerType":"facility","name":"Candidate C — East Mesa Hall","capacity":390,"generator":"No","description":"Fictional available hall serving the east side of the map."},
+      "geometry":{"type":"Point","coordinates":[-108.7005,35.5168]}
+    },
+    {
+      "type":"Feature","properties":{"id":"facility-d","layerType":"facility","name":"Candidate D — North Warehouse","capacity":520,"generator":"Yes","description":"Fictional large facility located inside the simulated flood-risk corridor."},
+      "geometry":{"type":"Point","coordinates":[-108.7480,35.5282]}
+    },
+    {
+      "type":"Feature","properties":{"id":"facility-e","layerType":"facility","name":"Candidate E — West Pavilion","capacity":310,"generator":"Yes","description":"Fictional available facility near the west relief corridor."},
+      "geometry":{"type":"Point","coordinates":[-108.7745,35.5165]}
+    }
+  ]
+}

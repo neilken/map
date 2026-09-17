@@ -1,0 +1,11 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated supply depot",
+  "features": [
+    {
+      "type":"Feature",
+      "properties":{"id":"supply-depot","layerType":"depot","name":"Emergency Supply Depot","address":"Gallup Fire Station #1 area","description":"The location is a real fire-station landmark. Its use as a supply depot is fictional for this classroom simulation."},
+      "geometry":{"type":"Point","coordinates":[-108.7395907,35.5081410]}
+    }
+  ]
+}

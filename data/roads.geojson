@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated open emergency roads",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"id":"road-south-spine","layerType":"road","name":"South 2nd emergency corridor","status":"Open","description":"Simulated open corridor connecting the supply depot to southern Gallup."},
+      "geometry": {"type":"LineString","coordinates":[[-108.73959,35.50814],[-108.7402,35.5120],[-108.7408,35.5170],[-108.7410,35.5210]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id":"road-nizhoni","layerType":"road","name":"Nizhoni relief corridor","status":"Open","description":"Simulated open east-west road used for emergency supplies."},
+      "geometry": {"type":"LineString","coordinates":[[-108.7850,35.5070],[-108.7680,35.5074],[-108.7520,35.5077],[-108.73959,35.50814],[-108.7240,35.5100],[-108.7080,35.5118],[-108.6940,35.5140]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id":"road-boardman","layerType":"road","name":"Boardman access corridor","status":"Open","description":"Simulated open corridor connecting southern facilities to east Gallup."},
+      "geometry": {"type":"LineString","coordinates":[[-108.73959,35.50814],[-108.7330,35.5040],[-108.7260,35.5065],[-108.7180,35.5110],[-108.70842,35.51725],[-108.7005,35.5168]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id":"road-west","layerType":"road","name":"West relief corridor","status":"Open","description":"Simulated open route toward western neighborhoods."},
+      "geometry": {"type":"LineString","coordinates":[[-108.73959,35.50814],[-108.7490,35.5105],[-108.7585,35.5134],[-108.7680,35.5155],[-108.7745,35.5165],[-108.7850,35.5178]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id":"road-east","layerType":"road","name":"East Mesa relief corridor","status":"Open","description":"Simulated open local route serving east Gallup."},
+      "geometry": {"type":"LineString","coordinates":[[-108.7240,35.5100],[-108.7160,35.5132],[-108.70842,35.51725],[-108.7005,35.5168],[-108.6920,35.5190]]}
+    },
+    {
+      "type": "Feature",
+      "properties": {"id":"road-south-loop","layerType":"road","name":"South community loop","status":"Open","description":"Simulated local emergency-access loop."},
+      "geometry": {"type":"LineString","coordinates":[[-108.7520,35.5077],[-108.7490,35.5010],[-108.7425,35.4988],[-108.7330,35.5040]]}
+    }
+  ]
+}

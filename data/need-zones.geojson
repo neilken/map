@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "name": "Simulated priority-need areas",
+  "features": [
+    {
+      "type":"Feature","properties":{"id":"need-south","layerType":"need","name":"Southside families","priority":"High","households":180,"description":"Fictional concentration of households needing food, water, and charging access."},
+      "geometry":{"type":"Point","coordinates":[-108.7445,35.5005]}
+    },
+    {
+      "type":"Feature","properties":{"id":"need-boardman","layerType":"need","name":"Boardman community","priority":"High","households":220,"description":"Fictional priority-need area near the Boardman corridor."},
+      "geometry":{"type":"Point","coordinates":[-108.7230,35.5098]}
+    },
+    {
+      "type":"Feature","properties":{"id":"need-east","layerType":"need","name":"East Gallup homes","priority":"High","households":205,"description":"Fictional priority-need area east of the school."},
+      "geometry":{"type":"Point","coordinates":[-108.6960,35.5178]}
+    },
+    {
+      "type":"Feature","properties":{"id":"need-west","layerType":"need","name":"Westside families","priority":"High","households":165,"description":"Fictional priority-need area west of the supply depot."},
+      "geometry":{"type":"Point","coordinates":[-108.7795,35.5180]}
+    },
+    {
+      "type":"Feature","properties":{"id":"need-downtown","layerType":"need","name":"Downtown residents","priority":"Medium","households":140,"description":"Fictional need area near the simulated flood corridor."},
+      "geometry":{"type":"Point","coordinates":[-108.7425,35.5225]}
+    }
+  ]
+}

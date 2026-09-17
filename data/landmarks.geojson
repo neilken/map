@@ -1,0 +1,26 @@
+{
+  "type": "FeatureCollection",
+  "name": "Real reference landmarks",
+  "features": [
+    {
+      "type":"Feature","properties":{"id":"hmhs","layerType":"landmark","name":"Hiroshi Miyamura High School","address":"680 S Boardman, Gallup, NM","description":"Real reference landmark. It is not automatically a relief-center candidate in this simulation."},
+      "geometry":{"type":"Point","coordinates":[-108.7084168,35.5172451]}
+    },
+    {
+      "type":"Feature","properties":{"id":"gimc","layerType":"landmark","name":"Gallup Indian Medical Center","address":"516 E Nizhoni Blvd, Gallup, NM","description":"Real medical landmark shown for location context."},
+      "geometry":{"type":"Point","coordinates":[-108.7300180,35.5073264]}
+    },
+    {
+      "type":"Feature","properties":{"id":"library","layerType":"landmark","name":"Octavia Fellin Public Library","address":"115 W Hill Ave, Gallup, NM","description":"Real civic landmark shown for location context."},
+      "geometry":{"type":"Point","coordinates":[-108.7411659,35.5251679]}
+    },
+    {
+      "type":"Feature","properties":{"id":"airport","layerType":"landmark","name":"Gallup Municipal Airport","address":"2111 Historic Hwy 66, Gallup, NM","description":"Real transportation landmark shown for location context."},
+      "geometry":{"type":"Point","coordinates":[-108.7879740,35.5121172]}
+    },
+    {
+      "type":"Feature","properties":{"id":"city-hall","layerType":"landmark","name":"Gallup City Hall","address":"110 W Aztec Ave, Gallup, NM","description":"Real civic landmark shown for location context."},
+      "geometry":{"type":"Point","coordinates":[-108.7410724,35.5266903]}
+    }
+  ]
+}

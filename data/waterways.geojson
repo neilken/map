@@ -1,0 +1,22 @@
+{
+  "type": "FeatureCollection",
+  "name": "Waterways and drainage",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "rio-puerco",
+        "layerType": "water",
+        "name": "Rio Puerco drainage corridor",
+        "description": "A real mapped drainage corridor shown for geographic context. The flood extents used in this activity are fictional."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [-108.798, 35.5273], [-108.781, 35.5267], [-108.764, 35.5280], [-108.746, 35.5268],
+          [-108.729, 35.5281], [-108.712, 35.5270], [-108.693, 35.5284], [-108.683, 35.5278]
+        ]
+      }
+    }
+  ]
+}

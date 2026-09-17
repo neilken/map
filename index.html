@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A structured GIS map-building activity for Engineering Essentials Unit 1.4.">
+  <title>Gallup Flash-Flood GIS Map Builder</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1f33'/%3E%3Cpath d='M10 46l13-29 13 12 8-15 10 32z' fill='%2345c6b8'/%3E%3Cpath d='M8 49h48' stroke='%23f0b44d' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loginOverlay" class="overlay">
+    <form id="loginForm" class="login-card" novalidate>
+      <div class="brand-mark" aria-hidden="true">GIS</div>
+      <p class="eyebrow">Engineering Essentials · Unit 1.4</p>
+      <h1>Gallup Flash-Flood Map Builder</h1>
+      <p class="login-intro">Build a relief-center map using real Gallup geography and fictional emergency data. Your progress, checks, answers, map, and score will be saved.</p>
+      <div class="simulation-note"><strong>Classroom simulation only.</strong> Flood zones, closures, needs, facility availability, and capacities are fictional—not real emergency information.</div>
+      <label for="studentName">Full first and last name</label>
+      <input id="studentName" name="studentName" autocomplete="name" placeholder="Example: Jordan Begay" required>
+      <fieldset>
+        <legend>Class period</legend>
+        <label class="period-choice"><input type="radio" name="period" value="6" required> Period 6</label>
+        <label class="period-choice"><input type="radio" name="period" value="7" required> Period 7</label>
+      </fieldset>
+      <p id="loginError" class="form-error" role="alert"></p>
+      <button class="primary large" type="submit">Start map builder</button>
+    </form>
+  </div>
+
+  <div id="tutorialOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle">
+    <section class="tutorial-card">
+      <p class="eyebrow">Before you begin</p>
+      <h2 id="tutorialTitle">Know the four parts of the workspace</h2>
+      <div class="tutorial-grid">
+        <article><span>1</span><h3>Directions</h3><p>Read the current phase on the left. Complete every requirement before moving on.</p></article>
+        <article><span>2</span><h3>Map</h3><p>Zoom, pan, change basemaps, inspect evidence, and draw your three new GIS layers.</p></article>
+        <article><span>3</span><h3>Layers & legend</h3><p>Turn reference information on and off. The legend explains every visible symbol.</p></article>
+        <article><span>4</span><h3>Check step</h3><p>Edit freely. Points are reduced only after you press <strong>Check This Step</strong> with unfinished or incorrect work.</p></article>
+      </div>
+      <button id="closeTutorial" class="primary large">Enter the workspace</button>
+    </section>
+  </div>
+
+  <div id="successOverlay" class="overlay hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <section class="success-card">
+      <div class="success-icon" aria-hidden="true">✓</div>
+      <p class="eyebrow">Submission confirmed</p>
+      <h2 id="successTitle">Your map has been submitted.</h2>
+      <p id="successMessage"></p>
+      <div class="final-score"><span id="finalScore">0</span><small>/ 15 points</small></div>
+      <p id="submissionId" class="submission-id"></p>
+      <button id="returnToMap" class="secondary">Return to final map</button>
+      <button id="printSummary" class="primary">Print or save summary</button>
+    </section>
+  </div>
+
+  <div id="app" class="app-shell" aria-hidden="true">
+    <header class="app-header">
+      <div class="header-title">
+        <div class="mini-mark" aria-hidden="true">GIS</div>
+        <div><p>Unit 1.4 · Map creation</p><h1>Gallup Flash-Flood Map Builder</h1></div>
+      </div>
+      <div class="header-status">
+        <div><span class="status-label">Student</span><strong id="studentDisplay">—</strong></div>
+        <div><span class="status-label">Score</span><strong><span id="scoreDisplay">0</span> / 15</strong></div>
+        <div id="saveStatus" class="save-status" data-status="local"><span></span> Saved on device</div>
+        <button id="helpButton" class="icon-button" aria-label="Open workspace help">?</button>
+      </div>
+    </header>
+
+    <div class="simulation-banner"><strong>SIMULATION:</strong> Real Gallup basemaps and landmarks; fictional flood zones, closures, needs, capacities, and facility availability.</div>
+
+    <nav id="phaseNav" class="phase-nav" aria-label="Activity phases"></nav>
+
+    <main class="workspace">
+      <aside class="panel directions-panel">
+        <div class="panel-heading">
+          <span id="phaseNumber" class="phase-number">1</span>
+          <div><p id="phaseLabel" class="eyebrow">Phase 1 of 6</p><h2 id="phaseTitle">Investigate the map</h2></div>
+        </div>
+        <p id="phasePurpose" class="phase-purpose"></p>
+        <div id="phaseInstructions" class="instruction-list"></div>
+        <div id="phaseControls" class="phase-controls"></div>
+        <section class="requirements-box">
+          <div class="requirements-title"><h3>Scored requirements</h3><span id="availablePoints">2 points available</span></div>
+          <div id="requirementsList"></div>
+        </section>
+        <div id="feedback" class="feedback neutral" role="status">Complete the directions, then check this step.</div>
+        <button id="checkStep" class="primary check-button">Check This Step</button>
+      </aside>
+
+      <section class="map-stage" aria-label="Interactive Gallup map">
+        <div class="map-toolbar">
+          <div class="tool-group" aria-label="Drawing tools">
+            <button class="tool-button" data-tool="inspect" title="Inspect map features"><span>⌖</span> Inspect</button>
+            <button class="tool-button" data-tool="point" title="Place the proposed relief center"><span>●</span> Point</button>
+            <button class="tool-button" data-tool="route" title="Draw the supply route"><span>╱</span> Route</button>
+            <button class="tool-button" data-tool="area" title="Draw the service area"><span>⬡</span> Area</button>
+          </div>
+          <div class="tool-group compact">
+            <button id="undoButton" class="tool-button">Undo</button>
+            <button id="finishAreaButton" class="tool-button" disabled>Finish area</button>
+            <button id="clearFeatureButton" class="tool-button danger">Clear current</button>
+            <button id="resetViewButton" class="tool-button">Reset view</button>
+          </div>
+        </div>
+        <div id="map"></div>
+        <div id="mapPrompt" class="map-prompt">Use Inspect to select map evidence.</div>
+        <div id="tileWarning" class="tile-warning hidden">Basemap tiles are unavailable. The local reference map remains usable.</div>
+      </section>
+
+      <aside class="panel evidence-panel">
+        <section>
+          <div class="section-heading"><h2>Basemap</h2><span>background context</span></div>
+          <div id="basemapButtons" class="basemap-buttons"></div>
+        </section>
+        <section>
+          <div class="section-heading"><h2>Reference layers</h2><span>evidence supplied to you</span></div>
+          <div id="layerToggles" class="layer-toggles"></div>
+        </section>
+        <section>
+          <div class="section-heading"><h2>Selected feature</h2><span>click a map symbol</span></div>
+          <div id="featureCard" class="feature-card empty">Nothing selected yet.</div>
+        </section>
+        <section>
+          <div class="section-heading"><h2>Legend</h2><span>visible map symbols</span></div>
+          <div id="legend" class="legend"></div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="app-footer">
+      <span>Map data © OpenStreetMap contributors · USGS The National Map</span>
+      <span>Gallup Flood Scenario v1 · classroom simulation</span>
+    </footer>
+  </div>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
